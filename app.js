@@ -23,7 +23,7 @@ var express     = require("express"),
 	
    //production db 
 //mongoose.connect("mongodb://localhost:27017/yelp_camp_4", { useNewUrlParser: true,useUnifiedTopology: true });
-mongoose.connect('mongodb+srv://thessential:'+process.env.mon_password+'/@flo1-rzene.mongodb.net/test?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://thessential:'+process.env.mon_password+'@flo1-rzene.mongodb.net/test?retryWrites=true&w=majority',{
 	useNewUrlParser:true,
 	useCreateIndex:true,
 	useUnifiedTopology:true
