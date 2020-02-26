@@ -27,15 +27,15 @@ console.log(process.env.DATABASEURL);
 //Databaseurl = "mongodb://localhost:27017/floCamp4" PUT THIS IN .ENV EXPORT DIDNT WORK
 mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true,useUnifiedTopology: true });
 
-// mongoose.connect('mongodb+srv://thessential:'+process.env.mon_password+'@flo1-rzene.mongodb.net/test?retryWrites=true&w=majority',{
-// 	useNewUrlParser:true,
-// 	useCreateIndex:true,
-// 	useUnifiedTopology:true
-// }).then(()=>{
-// 	console.log("connected to DB")
-// }).catch(err=>{
-// 	console.log("ERROR",err.message);
-// });
+mongoose.connect(jumanji,{
+	useNewUrlParser:true,
+	useCreateIndex:true,
+	useUnifiedTopology:true
+}).then(()=>{
+	console.log("connected to DB")
+}).catch(err=>{
+	console.log("ERROR",err.message);
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
