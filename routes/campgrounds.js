@@ -7,15 +7,28 @@ var express = require("express"),
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
-    // Get all campgrounds from DB
-    Campground.find({}, function(err, allCampgrounds){
-       if(err){
-           console.log(err);
-       } else {
-		   //currentUser:req.user comes from isLoggedIn since user is created. PssPrt creat req.user hence req.user which is defined by pssport after you are authenticate, given by passport
-          res.render("campgrounds/index",{campgrounds:allCampgrounds});
-       }
-    });
+	if(req.query.search){
+		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+		// Get all campgrounds from DB
+		Campground.find({name:regex}, function(err, allCampgrounds){
+		   if(err){
+			   console.log(err);
+		   } else {
+			   //currentUser:req.user comes from isLoggedIn since user is created. PssPrt creat req.user hence req.user which is defined by pssport after you are authenticate, given by passport
+			  res.render("campgrounds/index",{campgrounds:allCampgrounds});
+		   }
+		});
+	}else{
+		// Get all campgrounds from DB
+		Campground.find({}, function(err, allCampgrounds){
+		   if(err){
+			   console.log(err);
+		   } else {
+			   //currentUser:req.user comes from isLoggedIn since user is created. PssPrt creat req.user hence req.user which is defined by pssport after you are authenticate, given by passport
+			  res.render("campgrounds/index",{campgrounds:allCampgrounds});
+		   }
+		});
+	}	
 });
 
 //CREATE - add new campground to DB
@@ -100,5 +113,8 @@ router.delete("/:id",middleWareObj.checkCampGroundOwnership,function(req,res){
 });
 
 
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

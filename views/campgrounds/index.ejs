@@ -3,11 +3,19 @@
  <div class="container">
      <header class="jumbotron">
          <div class="container">
-             <h1>Welcome To YelpCamp!</h1>
+             <h1>Welcome To Jora!</h1>
              <p>View our hand-picked campgrounds from all over the world</p>
              <p>
                 <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
              </p>
+			 <p>
+				 <form action="/campgrounds" method="GET" class="form-inline">
+					 <div class="form-group">
+						 <input type="text" name="search" placeholder="Campground Search" class="form-control">
+						 <input type="submit" value="search" class="btn btn-default">
+					 </div>
+				 </form>
+			 </p>
          </div>
      </header>
      
