@@ -25,9 +25,9 @@ console.log(process.env.DATABASEURL);
 
    //production db 
 //Databaseurl = "mongodb://localhost:27017/floCamp4" PUT THIS IN .ENV EXPORT DIDNT WORK
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true,useUnifiedTopology: true });
+//mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true,useUnifiedTopology: true });
 
-mongoose.connect(jumanji,{
+mongoose.connect(process.env.DATABASEURL,{
 	useNewUrlParser:true,
 	useCreateIndex:true,
 	useUnifiedTopology:true
