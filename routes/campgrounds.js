@@ -23,12 +23,13 @@ router.post("/",middleWareObj.isLoggedIn,function(req, res){
     // get data from form and add to campgrounds array
     var name = req.body.name;
     var image = req.body.image;
+	var price = req.body.price;
     var desc = req.body.description;
 	var author ={
 		id: req.user._id,//the user id comes from req.user check it in console
 		username:req.user.username
 	}
-    var newCampground = {name: name, image: image, description: desc,author:author}
+    var newCampground = {name: name, image: image, description: desc,author:author, price:price}
     // Create a new campground and save to DB
 	// newly created just hold the data and represents that it is a thing, it is console.loggable
     Campground.create(newCampground, function(err, newlyCreated){

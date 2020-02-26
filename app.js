@@ -21,12 +21,15 @@ var express     = require("express"),
 	flash 	= require("connect-flash")
 
 	
-console.log(process.env.DATABASEURL);
-
+// this is created after all is done and is used for open source so that other people dont have to 
+// create there own DATABASEURL IF DATABASEURL IS NOT DEFINED, THEN USE LOCAL HOSE FLOCAMP
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/floCamp4"
+mongoose.connect(url);
    //production db 
 //Databaseurl = "mongodb://localhost:27017/floCamp4" PUT THIS IN .ENV EXPORT DIDNT WORK
 mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true,useUnifiedTopology: true });
-
+  
+// this useNewURLPARSE and below was not used, just the mongodb+srv and placed into the DATABASEURL in heroku setting.
 // mongoose.connect('mongodb+srv://thessential:'+process.env.mon_password+'@flo1-rzene.mongodb.net/test?retryWrites=true&w=majority',{
 // 	useNewUrlParser:true,
 // 	useCreateIndex:true,
