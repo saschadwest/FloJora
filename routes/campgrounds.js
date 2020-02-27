@@ -7,6 +7,7 @@ var express = require("express"),
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
+	var noMatch = null;
 	if(req.query.search){
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 		// Get all campgrounds from DB
@@ -14,8 +15,10 @@ router.get("/", function(req, res){
 		   if(err){
 			   console.log(err);
 		   } else {
-			   //currentUser:req.user comes from isLoggedIn since user is created. PssPrt creat req.user hence req.user which is defined by pssport after you are authenticate, given by passport
-			  res.render("campgrounds/index",{campgrounds:allCampgrounds});
+				if(allCampgrounds.length < 1){
+					noMatch = "No Campgrounds match that query, please try again.";
+				}
+			  res.render("campgrounds/index",{campgrounds:allCampgrounds, noMatch:noMatch});
 		   }
 		});
 	}else{
@@ -25,7 +28,7 @@ router.get("/", function(req, res){
 			   console.log(err);
 		   } else {
 			   //currentUser:req.user comes from isLoggedIn since user is created. PssPrt creat req.user hence req.user which is defined by pssport after you are authenticate, given by passport
-			  res.render("campgrounds/index",{campgrounds:allCampgrounds});
+			  res.render("campgrounds/index",{campgrounds:allCampgrounds, noMatch:noMatch});
 		   }
 		});
 	}	

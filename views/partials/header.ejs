@@ -11,6 +11,14 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">YelpCamp</a>
             </div>
+			 <p>
+				 <form id="search" action="/campgrounds" method="GET" class="form-inline">
+					 <div class="form-group">
+						 <input id="search1" type="text" name="search" placeholder="Campground Search" class="form-control">
+						 <input type="submit" value="search" class="btn btn-default">
+					 </div>
+				 </form>
+			 </p>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
 					<%if(!currentUser){%>

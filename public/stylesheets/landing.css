@@ -2,6 +2,10 @@ body {
   background-color: #000;
 }
 
+#landingSearch{
+	width:60%;
+}
+
 #landing-header {
   z-index: 1;
   position: relative;

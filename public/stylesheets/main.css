@@ -13,3 +13,14 @@
 .delete-form{
 	display:inline;
 }
+
+#search1{
+	width:11.3em;
+	display:inline;
+}
+#search{
+	float:left;
+	display:inline;
+	margin-left:0;
+	padding-right:0;
+}
