@@ -5,6 +5,9 @@ var campgroundSchema = new mongoose.Schema({
    image: String,
    price:String,
    description: String,
+	createdAt:{
+		type:Date, default:Date.now
+	},
 	// for current user we create author to disgintuish different users
 	author:{
 		id:{

@@ -48,7 +48,7 @@ app.use(flash());
 
 
 //seed the database seedDB();
-
+app.locals.moment = require('moment');
 // express session configuration
 app.use(require("express-session")({
 	secret:"HelloAgain",
